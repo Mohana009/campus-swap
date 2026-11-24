@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Swap - Student Marketplace</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Campus Swap</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#" class="nav-link active" data-section="marketplace">Marketplace</a>
+                    <a href="#" class="nav-link" data-section="dashboard">My Dashboard</a>
+                    <a href="#" class="nav-link" data-section="post-item">Post Item</a>
+                </div>
+                <div class="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Marketplace Section -->
+        <section id="marketplace" class="section active">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">Campus Marketplace</h1>
+                    <p class="section-subtitle">Buy, sell, and swap textbooks and electronics with fellow students</p>
+                </div>
+
+                <!-- Search and Filter Bar -->
+                <div class="search-filter">
+                    <div class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Search textbooks, electronics, or anything..." class="search-input">
+                    </div>
+                    <div class="filter-controls">
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="textbooks">Textbooks</option>
+                            <option value="electronics">Electronics</option>
+                        </select>
+                        <select id="priceFilter" class="filter-select">
+                            <option value="">Any Price</option>
+                            <option value="0-25">$0 - $25</option>
+                            <option value="25-50">$25 - $50</option>
+                            <option value="50-100">$50 - $100</option>
+                            <option value="100+">$100+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div id="productGrid" class="product-grid">
+                    <!-- Product cards will be dynamically generated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">My Dashboard</h1>
+                    <p class="section-subtitle">Manage your listings and track your activity</p>
+                </div>
+
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-list"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="activeListings">0</h3>
+                            <p>Active Listings</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalViews">0</h3>
+                            <p>Total Views</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="successfulSwaps">0</h3>
+                            <p>Successful Swaps</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="dashboard-section">
+                        <h2>My Listings</h2>
+                        <div id="myListings" class="my-listings">
+                            <!-- User's listings will appear here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Post Item Section -->
+        <section id="post-item" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">Post an Item</h1>
+                    <p class="section-subtitle">List your textbooks or electronics for sale or swap</p>
+                </div>
+
+                <form id="postItemForm" class="post-form">
+                    <div class="form-group">
+                        <label for="itemTitle" class="form-label">Item Title *</label>
+                        <input type="text" id="itemTitle" name="title" required class="form-input" placeholder="e.g., Calculus Textbook - 8th Edition">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemCategory" class="form-label">Category *</label>
+                            <select id="itemCategory" name="category" required class="form-select">
+                                <option value="">Select category</option>
+                                <option value="textbooks">Textbooks</option>
+                                <option value="electronics">Electronics</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCondition" class="form-label">Condition *</label>
+                            <select id="itemCondition" name="condition" required class="form-select">
+                                <option value="">Select condition</option>
+                                <option value="new">New</option>
+                                <option value="like-new">Like New</option>
+                                <option value="good">Good</option>
+                                <option value="fair">Fair</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemDescription" class="form-label">Description *</label>
+                        <textarea id="itemDescription" name="description" required class="form-textarea" placeholder="Describe your item in detail..." rows="4"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemPrice" class="form-label">Price ($) *</label>
+                            <input type="number" id="itemPrice" name="price" required class="form-input" placeholder="0.00" min="0" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="itemType" class="form-label">Listing Type *</label>
+                            <select id="itemType" name="type" required class="form-select">
+                                <option value="">Select type</option>
+                                <option value="sale">For Sale</option>
+                                <option value="swap">For Swap</option>
+                                <option value="both">Sale or Swap</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactEmail" class="form-label">Contact Email *</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required class="form-input" placeholder="your.email@university.edu">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone" class="form-label">Phone (Optional)</label>
+                            <input type="tel" id="contactPhone" name="contactPhone" class="form-input" placeholder="(555) 123-4567">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Upload Photos</label>
+                        <div class="file-upload">
+                            <input type="file" id="itemPhotos" name="photos" accept="image/*" multiple class="file-input">
+                            <label for="itemPhotos" class="file-upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Click to upload photos</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-plus"></i>
+                        Post Item
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Campus Swap</h3>
+                    <p>The premier marketplace for students to buy, sell, and swap items.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#marketplace">Marketplace</a></li>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#post-item">Post Item</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: support@campusswap.edu</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Campus Swap. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
