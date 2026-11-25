@@ -1,100 +1,108 @@
-# Campus Swap – Student Marketplace
+## Setup and Installation
 
-A student-to-student marketplace designed to make buying, selling, and exchanging items within college campuses simple, affordable, and convenient.
+Follow these steps to run Campus Swap on your local machine.
 
-## About the Project
+### Prerequisites
 
-Campus Swap is a campus-focused marketplace where students can buy, sell, or exchange items such as textbooks, electronics, and other student essentials.
+Make sure you have installed:
 
-The platform aims to reduce students' expenses, encourage reuse of useful products, and create a connected student marketplace within college communities.
+- Node.js and npm
+- Visual Studio Code
+- MongoDB Atlas account
+- Cloudinary account
+- VS Code Live Server extension
 
-## Current Features
+### 1. Clone the Repository
 
-### 1. Marketplace
-- Browse available products.
-- Search products by name.
-- Filter products by category.
-- Filter products by price range.
-- View product information and pricing.
-- Display sample product listings.
+Open your terminal and run:
 
-### 2. Post an Item
-- Add a product title.
-- Select product category.
-- Specify item condition.
-- Add product description.
-- Set price.
-- Select sale, swap, or both.
-- Provide contact information.
-- Select a product image.
-
-### 3. Student Dashboard
-- View personal listings.
-- View listing statistics.
-- Manage posted products.
-- Edit or delete listings.
-
-## Technology Stack
-
-### Current Frontend
-- HTML5 – Page structure.
-- CSS3 – Styling and responsive design.
-- JavaScript – Interactive functionality.
-- Font Awesome – Icons.
-- Google Fonts – Typography.
-
-### Planned Backend
-- Supabase Authentication – Student registration and login.
-- Supabase Database – Store student profiles, products, and swap requests.
-- Supabase Storage – Store product images.
-
-## Project Structure
-
-```text
-campus-swap/
-│
-├── index.html
-│
-├── css/
-│   └── style.css
-│
-├── js/
-│   └── main.js
-│
-└── README.md
+```bash
+git clone -b frontend https://github.com/Mohana009/campus-swap.git
 ```
 
-## Current Project Status
+Navigate to the project folder:
 
-The initial version was developed using HTML, CSS, and JavaScript with the assistance of Genspark AI.
+```bash
+cd campus-swap
+```
 
-It currently provides a frontend demonstration with sample product data and basic interactive functionality.
+### 2. Backend Setup
 
-Backend integration, permanent data storage, and authentication are not yet implemented.
+Navigate to the backend folder:
 
-## Features Under Development
+```bash
+cd backend
+```
 
-- Student registration and login.
-- Database integration.
-- Create, edit, and delete product listings with permanent storage.
-- Product image uploads.
-- Individual product detail views.
-- Swap and exchange requests.
-- Accept and reject swap requests.
-- Dynamic student dashboard.
-- Improved marketplace functionality.
+Install the required dependencies:
 
-## Future Enhancements
+```bash
+npm install
+```
 
-- In-app messaging between students.
-- Product recommendations.
-- Favorites and bookmarks.
-- Additional product categories.
-- Notifications.
-- Advanced search and filtering.
+### 3. Configure Environment Variables
 
-## Project Goal
+Create a `.env` file inside the `backend` folder.
 
-Our goal is to create a convenient and sustainable campus marketplace that helps students find affordable essentials while giving unused items a second life.
+Add the following variables:
 
-**Campus Swap – Buy, Sell, Swap, Repeat!**
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+```
+
+Replace the placeholder values with your own MongoDB Atlas and Cloudinary credentials.
+
+**Note:** Never share or upload your `.env` file to GitHub.
+
+### 4. Start the Backend Server
+
+Inside the backend folder, run:
+
+```bash
+npm run dev
+```
+
+The backend server will run at:
+
+```text
+http://localhost:5000
+```
+
+The product API is available at:
+
+```text
+http://localhost:5000/api/products
+```
+
+### 5. Frontend Setup
+
+1. Open the `frontend` folder in Visual Studio Code.
+2. Open `js/main.js`.
+3. Make sure the API base URL points to your running backend:
+
+```text
+http://localhost:5000/api/products
+```
+
+4. Right-click `index.html`.
+5. Select **Open with Live Server**.
+
+The Campus Swap website will open in your browser.
+
+### 6. Start Using Campus Swap
+
+You can now:
+
+- Browse available products.
+- Search and filter listings.
+- Post items for sale or exchange.
+- Upload product images.
+- Edit existing listings.
+- Delete listings.
+
+Product information is stored in MongoDB Atlas, and uploaded images are hosted using Cloudinary.
