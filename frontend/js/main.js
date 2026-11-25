@@ -383,7 +383,8 @@ setupFormSubmission() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            const savedProduct = await response.json();
+            const result = await response.json();
+            const savedProduct = result.product;
 
             const product = {
                 id: savedProduct._id,
