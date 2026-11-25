@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -171,6 +172,12 @@
                         </div>
                     </div>
 
+                    <!-- Seller Name -->
+                    <div class="form-group">
+                        <label for="sellerName" class="form-label">Seller Name *</label>
+                        <input type="text" id="sellerName" name="sellerName" required class="form-input" placeholder="Enter your name">
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="contactEmail" class="form-label">Contact Email *</label>
@@ -182,15 +189,19 @@
                         </div>
                     </div>
 
+                    <!-- Image Upload and Preview -->
                     <div class="form-group">
                         <label class="form-label">Upload Photos</label>
                         <div class="file-upload">
-                            <input type="file" id="itemPhotos" name="photos" accept="image/*" multiple class="file-input">
+                            <input type="file" id="itemPhotos" name="photos" accept="image/*">
                             <label for="itemPhotos" class="file-upload-label">
                                 <i class="fas fa-cloud-upload-alt"></i>
                                 <span>Click to upload photos</span>
                             </label>
                         </div>
+
+                        <!-- Selected images will appear here -->
+                        <div id="imagePreview" class="image-preview"></div>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-large">
